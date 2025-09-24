@@ -1,8 +1,8 @@
 namespace Ucu.Poo.RoleplayGame;
 
-public class Bow
+public class  : IItem
 {
-    public int AttackValue 
+    public int ValorAtaque
     {
         get
         {
