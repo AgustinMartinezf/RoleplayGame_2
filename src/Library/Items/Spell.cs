@@ -1,8 +1,8 @@
 namespace Ucu.Poo.RoleplayGame;
 
-public class Spell
+public class Spell : IItem
 {
-    public int AttackValue
+    public int ValorAtaque
     {
         get
         {
@@ -10,7 +10,7 @@ public class Spell
         }
     }
 
-    public int DefenseValue
+    public int ValorDefensa
     {
         get
         {
