@@ -1,8 +1,8 @@
 namespace Ucu.Poo.RoleplayGame;
 
-public class Helmet
+public class Helmet : IItem
 {
-    public int DefenseValue
+    public int ValorDefensa
     {
         get
         {
