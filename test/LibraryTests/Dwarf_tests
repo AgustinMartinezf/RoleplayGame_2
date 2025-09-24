@@ -1,0 +1,38 @@
+using NUnit.Framework;
+
+namespace RoleGameTests
+{
+    [TestFixture]
+    public class DwarfTests
+    {
+        [Test]
+        public void Dwarf_ReceivesAttackAndCure_WorksCorrectly()
+        {
+            // Arrange
+            Dwarf gimli = new Dwarf("Gimli");
+            gimli.Axe = new Axe();
+            gimli.Helmet = new Helmet();
+            gimli.Shield = new Shield();
+            
+            int initialHealth = gimli.Health;
+            int incomingDamage = 50;
+
+            // Act
+            gimli.ReceiveAttack(incomingDamage);
+            int afterDamageHealth = gimli.Health;
+
+            gimli.Cure();
+            int afterCureHealth = gimli.Health;
+
+            // Assert
+            Assert.That(afterDamageHealth, Is.LessThan(initialHealth), 
+                "La salud debería bajar después de recibir un ataque.");
+
+            Assert.That(afterCureHealth, Is.GreaterThanOrEqualTo(afterDamageHealth), 
+                "La salud debería subir después de curarse.");
+
+            Assert.That(afterCureHealth, Is.LessThanOrEqualTo(initialHealth), 
+                "La salud después de curarse no debería superar la salud inicial.");
+        }
+    }
+}
