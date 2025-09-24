@@ -6,30 +6,113 @@ namespace RoleGameTests
     public class DwarfTests
     {
         [Test]
-        public void Dwarf_ReceivesAttackAndCure_WorksCorrectly()
+        public void NewDwarf_HasFullHealth()
+        {
+            // Arrange
+            Dwarf gimli = new Dwarf("Gimli");
+
+            // Assert
+            Assert.That(gimli.Health, Is.EqualTo(100), 
+                "Un enano nuevo debería empezar con la salud completa (100).");
+        }
+
+        [Test]
+        public void Dwarf_AttackValue_DependsOnAxe()
         {
             // Arrange
             Dwarf gimli = new Dwarf("Gimli");
             gimli.Axe = new Axe();
-            gimli.Helmet = new Helmet();
-            gimli.Shield = new Shield();
-            
-            int initialHealth = gimli.Health;
-            int incomingDamage = 50;
 
             // Act
-            gimli.ReceiveAttack(incomingDamage);
-            int afterDamageHealth = gimli.Health;
-
-            gimli.Cure();
-            int afterCureHealth = gimli.Health;
+            int attack = gimli.AttackValue;
 
             // Assert
-            Assert.That(afterDamageHealth, Is.LessThan(initialHealth), 
-                "La salud debería bajar después de recibir un ataque.");
+            Assert.That(attack, Is.GreaterThan(0), 
+                "El valor de ataque debería ser mayor a 0 cuando tiene un hacha equipada.");
+        }
 
-            Assert.That(afterCureHealth, Is.GreaterThanOrEqualTo(afterDamageHealth), 
-                "La salud debería subir después de curarse.");
+        [Test]
+        public void Dwarf_ReceivesAttack_HealthDecreases()
+        {
+            // Arrange
+            Dwarf gimli = new Dwarf("Gimli");
+            int initialHealth = gimli.Health;
+
+            // Act
+            gimli.ReceiveAttack(30);
+
+            // Assert
+            Assert.That(gimli.Health, Is.LessThan(initialHealth), 
+                "La salud debería reducirse tras recibir un ataque.");
+        }
+
+        [Test]
+        public void Dwarf_ReceivesAttackWithShield_TakesReducedDamage()
+        {
+            // Arrange
+            Dwarf gimli = new Dwarf("Gimli");
+            gimli.Shield = new Shield();
+            int initialHealth = gimli.Health;
+
+            // Act
+            gimli.ReceiveAttack(30);
+
+            // Assert
+            Assert.That(gimli.Health, Is.GreaterThan(initialHealth - 30), 
+                "El escudo debería reducir el daño recibido.");
+        }
+
+        [Test]
+        public void Dwarf_ReceivesAttackWithHelmet_TakesReducedDamage()
+        {
+            // Arrange
+            Dwarf gimli = new Dwarf("Gimli");
+            gimli.Helmet = new Helmet();
+            int initialHealth = gimli.Health;
+
+            // Act
+            gimli.ReceiveAttack(30);
+
+            // Assert
+            Assert.That(gimli.Health, Is.GreaterThan(initialHealth - 30), 
+                "El casco debería reducir el daño recibido.");
+        }
+
+        [Test]
+        public void Dwarf_Cure_RestoresHealth()
+        {
+            // Arrange
+            Dwarf gimli = new Dwarf("Gimli");
+            gimli.ReceiveAttack(50);
+            int afterDamage = gimli.Health;
+
+            // Act
+            gimli.Cure();
+
+            // Assert
+            Assert.That(gimli.Health, Is.GreaterThan(afterDamage), 
+                "La curación debería aumentar la salud.");
+            Assert.That(gimli.Health, Is.LessThanOrEqualTo(100), 
+                "La salud nunca debería superar el máximo (100).");
+        }
+
+        [Test]
+        public void Dwarf_Dead_CannotBeCured()
+        {
+            // Arrange
+            Dwarf gimli = new Dwarf("Gimli");
+            gimli.ReceiveAttack(999); // daño letal
+
+            // Act
+            gimli.Cure();
+
+            // Assert
+            Assert.That(gimli.Health, Is.EqualTo(0), 
+                "Un enano muerto no debería poder curarse.");
+        }
+    }
+}
+
 
             Assert.That(afterCureHealth, Is.LessThanOrEqualTo(initialHealth), 
                 "La salud después de curarse no debería superar la salud inicial.");
