@@ -1,8 +1,8 @@
 namespace Ucu.Poo.RoleplayGame;
 
-public class Axe
+public class Axe : IItem
 {
-    public int AttackValue 
+    public int ValorAtaque 
     {
         get
         {
