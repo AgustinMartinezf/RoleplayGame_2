@@ -1,8 +1,8 @@
 namespace Ucu.Poo.RoleplayGame;
 
-public class Shield
+public class Shield : IItem
 {
-    public int DefenseValue
+    public int ValorDefensa
     {
         get
         {
