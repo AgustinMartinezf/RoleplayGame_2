@@ -8,6 +8,7 @@ public class Shield : IItem
         {
             return 14;
         }
+        set {}
     }
     public int ValorAtaque
     {
@@ -15,6 +16,7 @@ public class Shield : IItem
         {
             return 0;
         }
+        set {}
     }
     public string Nombre
     {
