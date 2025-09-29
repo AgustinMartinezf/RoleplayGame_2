@@ -8,6 +8,7 @@ public class Helmet : IItem
         {
             return 18;
         }
+        set {}
     }
     public int ValorAtaque
     {
@@ -15,6 +16,7 @@ public class Helmet : IItem
         {
             return 0;
         }
+        set {}
     }
     public string Nombre
     {
