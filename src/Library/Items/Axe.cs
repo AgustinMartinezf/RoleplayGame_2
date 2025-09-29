@@ -9,4 +9,11 @@ public class Axe : IItem
             return 25;
         } 
     }
+    public int ValorDefensa
+    {
+        get
+        {
+            return 0;
+        }
+    }
 }
