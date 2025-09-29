@@ -1,4 +1,4 @@
-namespace Library;
+namespace RoleplayGame_2.Library.Items;
 
 public interface IItem
 {
@@ -7,6 +7,7 @@ public interface IItem
     string Nombre { get; }
 
 }
+
 
 
 
