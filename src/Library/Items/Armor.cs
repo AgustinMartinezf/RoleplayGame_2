@@ -9,4 +9,11 @@ public class Armor : IItem
             return 25;
         }
     }
+    public int ValorAtaque
+    {
+        get
+        {
+            return 0;
+        }
+    }
 }
