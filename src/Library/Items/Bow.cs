@@ -1,6 +1,6 @@
 namespace Ucu.Poo.RoleplayGame;
 
-public class  : IItem
+public class Bow: IItem
 {
     public int ValorAtaque
     {
@@ -14,6 +14,13 @@ public class  : IItem
         get
         {
             return 0;
+        }
+    }
+    public string Nombre
+    {
+        get
+        {    
+            return "Arco";
         }
     }
 }
