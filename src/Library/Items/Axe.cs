@@ -8,6 +8,7 @@ public class Axe : IItem
         {
             return 25;
         } 
+        set {}
     }
     public int ValorDefensa
     {
@@ -15,6 +16,7 @@ public class Axe : IItem
         {
             return 0;
         }
+        set {}
     }
     public string Nombre
     {
@@ -22,5 +24,6 @@ public class Axe : IItem
         {    
             return "Hacha";
         }
+        set {}
     }
 }
