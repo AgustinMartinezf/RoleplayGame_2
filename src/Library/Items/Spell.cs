@@ -8,6 +8,7 @@ public class Spell : IItem
         {
             return 70;
         }
+        set {}
     }
 
     public int ValorDefensa
@@ -16,6 +17,7 @@ public class Spell : IItem
         {
             return 70;
         }
+        set {}
     }
     public string Nombre
     {
