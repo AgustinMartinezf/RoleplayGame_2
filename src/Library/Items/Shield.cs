@@ -9,4 +9,11 @@ public class Shield : IItem
             return 14;
         }
     }
+    public int ValorAtaque
+    {
+        get
+        {
+            return 0;
+        }
+    }
 }
