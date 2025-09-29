@@ -9,4 +9,11 @@ public class Sword : IItem
             return 20;
         } 
     }
+    public int ValorDefensa
+    {
+        get
+        {
+            return 0;
+        }
+    }
 }
