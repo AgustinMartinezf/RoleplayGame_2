@@ -17,4 +17,11 @@ public class Spell : IItem
             return 70;
         }
     }
+    public string Nombre
+    {
+        get
+        {    
+            return "Hechizo";
+        }
+    }
 }
