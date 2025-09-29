@@ -16,4 +16,11 @@ public class Sword : IItem
             return 0;
         }
     }
+    public string Nombre
+    {
+        get
+        {    
+            return "Espada";
+        }
+    }
 }
