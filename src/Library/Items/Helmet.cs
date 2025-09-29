@@ -9,4 +9,11 @@ public class Helmet : IItem
             return 18;
         }
     }
+    public int ValorAtaque
+    {
+        get
+        {
+            return 0;
+        }
+    }
 }
