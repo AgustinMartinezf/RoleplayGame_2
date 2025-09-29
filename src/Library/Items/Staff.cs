@@ -17,4 +17,11 @@ public class Staff : IItem
             return 100;
         }
     }
+    public string Nombre
+    {
+        get
+        {    
+            return "Varita mágica";
+        }
+    }
 }
