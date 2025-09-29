@@ -24,6 +24,5 @@ public class Axe : IItem
         {    
             return "Hacha";
         }
-        set {}
     }
 }
