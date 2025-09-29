@@ -9,4 +9,11 @@ public class  : IItem
             return 15;
         } 
     }
+    public int ValorDefensa
+    {
+        get
+        {
+            return 0;
+        }
+    }
 }
