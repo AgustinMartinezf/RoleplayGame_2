@@ -1,4 +1,4 @@
-namespace Ucu.Poo.RoleplayGame;
+namespace Ucu.Poo.RoleplayGame.Library.Items;
 
 public class Armor : IItem
 {   
