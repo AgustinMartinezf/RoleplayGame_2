@@ -25,6 +25,5 @@ public class Armor : IItem
         {    
             return "Armadura";
         }
-        set {}
     }
 }
