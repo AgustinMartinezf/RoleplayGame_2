@@ -1,4 +1,4 @@
-namespace RoleplayGame_2.Library.Items;
+namespace Ucu.Poo.RoleplayGame;
 
 public interface IItem
 {
@@ -7,6 +7,7 @@ public interface IItem
     string Nombre { get; }
 
 }
+
 
 
 
