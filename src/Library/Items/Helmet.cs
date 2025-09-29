@@ -16,4 +16,11 @@ public class Helmet : IItem
             return 0;
         }
     }
+    public string Nombre
+    {
+        get
+        {    
+            return "Casco de Hierro";
+        }
+    }
 }
