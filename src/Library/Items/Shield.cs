@@ -16,4 +16,11 @@ public class Shield : IItem
             return 0;
         }
     }
+    public string Nombre
+    {
+        get
+        {    
+            return "Escudo";
+        }
+    }
 }
