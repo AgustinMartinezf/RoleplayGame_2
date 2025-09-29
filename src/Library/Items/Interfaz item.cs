@@ -1,4 +1,4 @@
-namespace Library.Items;
+namespace Library;
 
 public interface IItem
 {
@@ -7,5 +7,6 @@ public interface IItem
     string Nombre { get; }
 
 }
+
 
 
