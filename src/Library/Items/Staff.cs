@@ -7,7 +7,8 @@ public class Staff : IItem
         get
         {
             return 100;
-        } 
+        }
+        set {}
     }
 
     public int ValorDefensa
@@ -16,6 +17,7 @@ public class Staff : IItem
         {
             return 100;
         }
+        set {}
     }
     public string Nombre
     {
