@@ -1,4 +1,4 @@
-namespace RoleplayGame_2.Library.Items;
+namespace Ucu.Poo.RoleplayGame;
 
 public class Axe : IItem
 {
