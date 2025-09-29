@@ -16,4 +16,11 @@ public class Armor : IItem
             return 0;
         }
     }
+    public string Nombre
+    {
+        get
+        {    
+            return "Armadura";
+        }
+    }
 }
