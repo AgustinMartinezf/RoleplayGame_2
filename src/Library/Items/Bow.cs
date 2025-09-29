@@ -8,6 +8,7 @@ public class Bow: IItem
         {
             return 15;
         } 
+        set {}
     }
     public int ValorDefensa
     {
@@ -15,6 +16,7 @@ public class Bow: IItem
         {
             return 0;
         }
+        set {}
     }
     public string Nombre
     {
