@@ -1,60 +1,43 @@
 namespace Ucu.Poo.RoleplayGame;
 
-public class Dwarf
+public class Dwarf : ICharacter
 {
     private int health = 100;
+    private List<IItem> items = new List<IItem>();
 
     public Dwarf(string name)
     {
-        this.Name = name;
+        Name = name;
     }
 
     public string Name { get; set; }
 
-    public Axe Axe { get; set; }
-
-    public Shield Shield { get; set; }
-
-    public Helmet Helmet { get; set; }
-
-    public int AttackValue
-    {
-        get
-        {
-            return Axe.AttackValue;
-        }
-    }
-
-    public int DefenseValue
-    {
-        get
-        {
-            return Shield.DefenseValue + Helmet.DefenseValue;
-        }
-    }
+    public int AttackValue => items.Sum(i => i.AttackValue);
+    public int DefenseValue => items.Sum(i => i.DefenseValue);
 
     public int Health
     {
-        get
-        {
-            return this.health;
-        }
-        private set
-        {
-            this.health = value < 0 ? 0 : value;
-        }
+        get => health;
+        private set => health = value < 0 ? 0 : value;
     }
 
     public void ReceiveAttack(int power)
     {
-        if (this.DefenseValue < power)
+        if (DefenseValue < power)
         {
-            this.Health -= power - this.DefenseValue;
+            Health -= power - DefenseValue;
         }
     }
 
     public void Cure()
     {
-        this.Health = 100;
+        Health = 100;
+    }
+
+    public void AddItem(IItem item)
+    {
+        if (!item.IsMagical)
+            items.Add(item);
     }
 }
+

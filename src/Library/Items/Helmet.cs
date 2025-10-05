@@ -1,28 +1,20 @@
-namespace Ucu.Poo.RoleplayGame;
-
-public class Helmet : IItem
+namespace Ucu.Poo.RoleplayGame
 {
-    public int ValorDefensa
+    public class Helmet : IItem
     {
-        get
+        public int AttackValue
         {
-            return 18;
+            get { return 0; }
         }
-        set {}
-    }
-    public int ValorAtaque
-    {
-        get
+
+        public int DefenseValue
         {
-            return 0;
+            get { return 18; }
         }
-        set {}
-    }
-    public string Nombre
-    {
-        get
-        {    
-            return "Casco de Hierro";
+
+        public bool IsMagical
+        {
+            get { return false; }
         }
     }
 }

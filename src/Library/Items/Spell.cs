@@ -1,29 +1,21 @@
-namespace Ucu.Poo.RoleplayGame;
-
-public class Spell : IItem
+namespace Ucu.Poo.RoleplayGame
 {
-    public int ValorAtaque
+    public class Spell : IItem
     {
-        get
+        public int AttackValue
         {
-            return 70;
+            get { return 70; }
         }
-        set {}
-    }
 
-    public int ValorDefensa
-    {
-        get
+        public int DefenseValue
         {
-            return 70;
+            get { return 70; }
         }
-        set {}
-    }
-    public string Nombre
-    {
-        get
-        {    
-            return "Hechizo";
+
+        public bool IsMagical
+        {
+            get { return true; }
         }
     }
 }
+

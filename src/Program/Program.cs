@@ -1,25 +1,42 @@
-﻿using Ucu.Poo.RoleplayGame;
+﻿using System;
+using Ucu.Poo.RoleplayGame;
 
-SpellsBook book = new SpellsBook();
-book.Spells = new Spell[]{ new Spell() };
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Crear los ítems
+        Staff staff = new Staff();
+        Spell fireball = new Spell();
+        SpellsBook book = new SpellsBook();
+        book.Spells.Add(fireball);
 
-Wizard gandalf = new Wizard("Gandalf");
-gandalf.Staff = new Staff();
-gandalf.SpellsBook = book;
+        Axe axe = new Axe();
+        Helmet helmet = new Helmet();
+        Shield shield = new Shield();
 
-Dwarf gimli = new Dwarf("Gimli");
-gimli.Axe = new Axe();
-gimli.Helmet = new Helmet();
-gimli.Shield = new Shield();
+        // Crear los personajes
+        Wizard gandalf = new Wizard("Gandalf");
+        gandalf.AddItem(staff);
+        gandalf.AddItem(book);
 
-Console.WriteLine($"Gimli has ❤️ {gimli.Health}");
-Console.WriteLine($"Gandalf attacks Gimli with ⚔️ {gandalf.AttackValue}");
+        Dwarf gimli = new Dwarf("Gimli");
+        gimli.AddItem(axe);
+        gimli.AddItem(helmet);
+        gimli.AddItem(shield);
 
-gimli.ReceiveAttack(gandalf.AttackValue);
+        // Simulación de pelea
+        Console.WriteLine($"{gimli.Name} tiene {gimli.Health}");
+        Console.WriteLine($"{gandalf.Name} ataca a {gimli.Name} con {gandalf.AttackValue} de ataque");
 
-Console.WriteLine($"Gimli has ❤️ {gimli.Health}");
+        gimli.ReceiveAttack(gandalf.AttackValue);
 
-gimli.Cure();
+        Console.WriteLine($"{gimli.Name} ahora tiene {gimli.Health}");
 
-Console.WriteLine($"Gimli has ❤️ {gimli.Health}");
+        gimli.Cure();
+
+        Console.WriteLine($"{gimli.Name} se curó y tiene {gimli.Health}");
+    }
+}
+
 

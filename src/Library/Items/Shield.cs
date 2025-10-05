@@ -1,28 +1,20 @@
-namespace Ucu.Poo.RoleplayGame;
-
-public class Shield : IItem
+namespace Ucu.Poo.RoleplayGame
 {
-    public int ValorDefensa
+    public class Shield : IItem
     {
-        get
+        public int AttackValue
         {
-            return 14;
+            get { return 0; }
         }
-        set {}
-    }
-    public int ValorAtaque
-    {
-        get
+
+        public int DefenseValue
         {
-            return 0;
+            get { return 14; }
         }
-        set {}
-    }
-    public string Nombre
-    {
-        get
-        {    
-            return "Escudo";
+
+        public bool IsMagical
+        {
+            get { return false; }
         }
     }
 }

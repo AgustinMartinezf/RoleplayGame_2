@@ -1,28 +1,20 @@
-namespace Ucu.Poo.RoleplayGame;
-
-public class Axe : IItem
+namespace Ucu.Poo.RoleplayGame
 {
-    public int ValorAtaque 
+    public class Axe : IItem
     {
-        get
+        public int AttackValue
         {
-            return 25;
-        } 
-        set {}
-    }
-    public int ValorDefensa
-    {
-        get
-        {
-            return 0;
+            get { return 25; }
         }
-        set {}
-    }
-    public string Nombre
-    {
-        get
-        {    
-            return "Hacha";
+
+        public int DefenseValue
+        {
+            get { return 0; }
+        }
+
+        public bool IsMagical
+        {
+            get { return false; }
         }
     }
 }

@@ -1,32 +1,44 @@
-namespace Ucu.Poo.RoleplayGame;
-
-public class SpellsBook
+namespace Ucu.Poo.RoleplayGame
 {
-    public Spell[] Spells { get; set; }
-    
-    public int AttackValue
+    public class SpellsBook : IItem
     {
-        get
-        {
-            int value = 0;
-            foreach (Spell spell in this.Spells)
-            {
-                value += spell.AttackValue;
-            }
-            return value;
-        }
-    }
+        public List<Spell> Spells { get; set; } = new List<Spell>();
 
-    public int DefenseValue
-    {
-        get
+        public int AttackValue
         {
-            int value = 0;
-            foreach (Spell spell in this.Spells)
+            get
             {
-                value += spell.DefenseValue;
+                int total = 0;
+                if (Spells != null)
+                {
+                    foreach (Spell spell in Spells)
+                    {
+                        total += spell.AttackValue;
+                    }
+                }
+                return total;
             }
-            return value;
+        }
+
+        public int DefenseValue
+        {
+            get
+            {
+                int total = 0;
+                if (Spells != null)
+                {
+                    foreach (Spell spell in Spells)
+                    {
+                        total += spell.DefenseValue;
+                    }
+                }
+                return total;
+            }
+        }
+
+        public bool IsMagical
+        {
+            get { return true; }
         }
     }
 }

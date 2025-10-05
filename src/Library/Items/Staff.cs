@@ -1,29 +1,21 @@
-namespace Ucu.Poo.RoleplayGame;
-
-public class Staff : IItem
+namespace Ucu.Poo.RoleplayGame
 {
-    public int ValorAtaque 
+    public class Staff : IItem
     {
-        get
+        public int AttackValue
         {
-            return 100;
+            get { return 100; }
         }
-        set {}
-    }
 
-    public int ValorDefensa
-    {
-        get
+        public int DefenseValue
         {
-            return 100;
+            get { return 100; }
         }
-        set {}
-    }
-    public string Nombre
-    {
-        get
-        {    
-            return "Varita mágica";
+
+        public bool IsMagical
+        {
+            get { return true; }
         }
     }
 }
+

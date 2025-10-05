@@ -1,8 +1,9 @@
 namespace Ucu.Poo.RoleplayGame;
 
-public class Wizard
+public class Wizard : ICharacter
 {
     private int health = 100;
+    private List<IItem> items = new List<IItem>();
 
     public Wizard(string name)
     {
@@ -11,36 +12,13 @@ public class Wizard
 
     public string Name { get; set; }
 
-    public SpellsBook SpellsBook { get; set; }
-
-    public Staff Staff { get; set; }
-
-    public int AttackValue
-    {
-        get
-        {
-            return SpellsBook.AttackValue + Staff.AttackValue;
-        }
-    }
-
-    public int DefenseValue
-    {
-        get
-        {
-            return SpellsBook.DefenseValue + Staff.DefenseValue;
-        }
-    }
+    public int AttackValue => items.Sum(i => i.AttackValue);
+    public int DefenseValue => items.Sum(i => i.DefenseValue);
 
     public int Health
     {
-        get
-        {
-            return this.health;
-        }
-        private set
-        {
-            this.health = value < 0 ? 0 : value;
-        }
+        get => this.health;
+        private set => this.health = value < 0 ? 0 : value;
     }
 
     public void ReceiveAttack(int power)
@@ -54,5 +32,10 @@ public class Wizard
     public void Cure()
     {
         this.Health = 100;
+    }
+
+    public void AddItem(IItem item)
+    {
+        items.Add(item);
     }
 }

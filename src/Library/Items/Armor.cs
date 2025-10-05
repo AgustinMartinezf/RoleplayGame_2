@@ -1,29 +1,21 @@
-namespace RoleplayGame_2.Library.Items;
+namespace Ucu.Poo.RoleplayGame
+{
+    public class Armor : IItem
+    {
+        public int AttackValue
+        {
+            get { return 0; }
+        }
 
-public class Armor : IItem
-{   
-    public int ValorDefensa
-    {
-        get
+        public int DefenseValue
         {
-            return 25;
+            get { return 25; }
         }
-        set {}
-    }
-    public int ValorAtaque
-    {
-        get
+
+        public bool IsMagical
         {
-            return 0;
-        }
-        set {}
-    }
-    
-    public string Nombre
-    {
-        get
-        {    
-            return "Armadura";
+            get { return false; }
         }
     }
 }
+
